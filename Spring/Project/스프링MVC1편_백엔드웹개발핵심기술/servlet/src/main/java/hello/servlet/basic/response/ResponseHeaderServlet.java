@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-    @WebServlet(name = "responseHeaderServlet", urlPatterns = "/response-header")
+@WebServlet(name = "responseHeaderServlet", urlPatterns = "/response-header")
 public class ResponseHeaderServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -16,7 +16,7 @@ public class ResponseHeaderServlet extends HttpServlet {
         response.setStatus(HttpServletResponse.SC_OK); // 응답코드셋팅 --> 200을 직접 써도 되지만 만들어놓은거를 사용하자!
 
         // [response-headers]
-        response.setHeader("Content-Type", "text/plain;charset=utf-8");
+//        response.setHeader("Content-Type", "text/plain;charset=utf-8");
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         response.setHeader("Pragma", "no-cache");
         response.setHeader("my-header", "hello"); // 내가 헤더를 만들 수도 있음!
@@ -27,7 +27,7 @@ public class ResponseHeaderServlet extends HttpServlet {
         redirect(response);
 
         // [message Body 생성]
-        response.getWriter().write("ㅎㅇㅎㅇ");
+        response.getWriter().write("ok");
     }
 
     private void content(HttpServletResponse response) {

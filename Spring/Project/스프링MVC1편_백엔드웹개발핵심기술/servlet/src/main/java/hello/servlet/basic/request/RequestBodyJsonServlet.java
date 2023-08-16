@@ -25,6 +25,9 @@ public class RequestBodyJsonServlet extends HttpServlet {
         String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
 
         HelloData helloData = objectMapper.readValue(messageBody, HelloData.class);
+        System.out.println("helloData = " + helloData.getUsername());
+        System.out.println("helloData = " + helloData.getAge());
 
+        response.getWriter().write("OK");
     }
 }
